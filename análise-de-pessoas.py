@@ -8,24 +8,25 @@ IB = '\033[38;5;12m'
 
 # Declarando as variáveis
 pessoas = []
+dados = {}
 c = 0
 
 # Laço para a inserção dos dados
 while True:
     # Inserção dos dados
-    nome = str(input('Seu nome: ')).strip().title()
-    idade = int(input('Sua idade: ').strip())
-    sexo = str(input(f'Sexo: [{IR}M{r}arculino / {IR}F{r}eminino / {IR}O{r}utros] ')).strip().upper()[0]
+    dados['nome'] = str(input('Seu nome: ')).strip().title()
+    dados['idade'] = int(input('Sua idade: ').strip())
     
-    # Tratamento de erro
-    while sexo not in 'MFO':
+    while True:
+        dados['sexo'] = str(input(f'Sexo: [{IR}M{r}arculino / {IR}F{r}eminino / {IR}O{r}utros] ')).strip().upper()[0]
+        # Tratamento de erro
+        if dados['sexo'] in 'MFO':
+            break
         print(f'\n{IR}Valor incorreto!{r} Digite novamente.')
-        sexo = str(input(f'Sexo: [{IR}M{r}asculino / {IR}F{r}eminino / {IR}O{r}utros] ')).strip().upper()[0]
 
-    # Inserindo os dados em um dicionário, e depois colocando em uma lista
-    dados = {'nome': nome, 'idade': idade, 'sexo': sexo}
-    pessoas.append(dados)
-    del nome, idade, sexo, dados
+    # Inserindo os dados em um dicionário, colocando em uma lista e limpando o dicionário
+    pessoas.append(dados.copy())
+    dados.clear
     
     c += 1
 
@@ -63,7 +64,7 @@ print(f'- Número de pessoas cadastradas: {tot_pessoas}')
 s(0.5)
 print(f'- Média de idade do grupo: {media_idade:.1f}')
 s(0.5)
-print(f'- Nome das mulheres cadastradas: {tot_m}')
+print(f'- Nomes das mulheres cadastradas: {tot_m}')
 s(0.5)
 print(f'- Pessoas com idade maior que a média do grupo: ')
 s(0.5)
@@ -75,7 +76,9 @@ for p in pessoas:
             print(f'{k.title()}: {v}; ', end='')
         print()
         c += 1
-print('   -- Nenhuma pessoa com idade maior que a média')
+if c == 0:
+    print('   -- Nenhuma pessoa com a idade maior que a média')
+
 # Linha para design
 print()
 print('==' * 20), s(0.5)
