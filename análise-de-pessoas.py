@@ -69,7 +69,7 @@ s(0.5)
 print(f'- Pessoas com idade maior que a média do grupo: ')
 s(0.5)
 c = 0
-for p in enumerate(pessoas):
+for i, p in enumerate(pessoas):
     if p['idade'] > media_idade:
         print('   -> ', end='')
         for k, v in p.items():
