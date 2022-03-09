@@ -68,15 +68,14 @@ print(f'- Nomes das mulheres cadastradas: {tot_m}')
 s(0.5)
 print(f'- Pessoas com idade maior que a média do grupo: ')
 s(0.5)
-c = 0
+
 for i, p in enumerate(pessoas):
     if p['idade'] > media_idade:
         print('   -> ', end='')
         for k, v in p.items():
             print(f'{k.title()}: {v}; ', end='')
         print()
-        c += 1
-if c == 0:
+if i == 0:
     print('   -- Nenhuma pessoa com a idade maior que a média')
 
 # Linha para design
