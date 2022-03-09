@@ -12,7 +12,6 @@ pessoas = []
 dados = {}
 c = 0
 
-
 # Laço para a inserção dos dados
 while True:
     # Inserção dos dados
