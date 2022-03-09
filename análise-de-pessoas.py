@@ -14,7 +14,7 @@ c = 0
 
 i
 java_ve
-b
+
 # Laço para a inserção dos dados
 while True:
     # Inserção dos dados
