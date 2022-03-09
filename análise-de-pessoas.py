@@ -19,7 +19,8 @@ while True:
     
     while True:
         dados['sexo'] = str(input(f'Sexo: [{IR}M{r}arculino / {IR}F{r}eminino / {IR}O{r}utros] ')).strip().upper()[0]
-        # Tratamento de erro
+        
+        # Tratamento de erros
         if dados['sexo'] in 'MFO':
             break
         print(f'\n{IR}Valor incorreto!{r} Digite novamente.')
