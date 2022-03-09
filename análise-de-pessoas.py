@@ -73,10 +73,13 @@ s(0.5)
 
 for i, p in enumerate(pessoas):
     if p['idade'] > media_idade:
+
         print('   -> ', end='')
+    
         for k, v in p.items():
             print(f'{k.title()}: {v}; ', end='')
         print()
+        
 if i == 0:
     print('   -- Nenhuma pessoa com a idade maior que a média')
 
